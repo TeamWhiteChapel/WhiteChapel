@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b41bec8584efee48b246fbe0d183a7e, type: 3}
-  m_Name: FadeData
+  m_Name: FadeData 2
   m_EditorClassIdentifier: 
-  fadeOption: 0
-  sprite: {fileID: 21300000, guid: 3bc4c2b5b6e34a144ba72c5d603616fb, type: 3}
+  fadeOption: 2
+  sprite: {fileID: 0}
   fadeIn:
-    fadeColor: {r: 0, g: 0, b: 0, a: 0}
+    fadeColor: {r: 1, g: 0.64757, b: 0.3160377, a: 1}
     fadeTime: 1
   fadeOut:
-    fadeColor: {r: 0, g: 0, b: 0, a: 0}
+    fadeColor: {r: 1, g: 1, b: 1, a: 0}
     fadeTime: 1
