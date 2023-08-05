@@ -10,14 +10,18 @@ public class AsyncSceneLoader : MonoBehaviour
     [SerializeField]
     Canvas loadingUI;
     [SerializeField]
-    Image imageBackground, imageForeground;
-    [SerializeField]
-    float fadeTime = 1.0f;
+    Image imageBackground;
     [SerializeField]
     float sceneLoadCheckInterval = 1.0f;
 
     IEnumerator runningScene;
     Action<string> errorHandleEvent;
+    WaitForSeconds sceneCheckTime;
+
+    private void Awake()
+    {
+        sceneCheckTime = new WaitForSeconds(sceneLoadCheckInterval);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,63 +37,65 @@ public class AsyncSceneLoader : MonoBehaviour
 
     public void SceneLoad(int index, Action<string> _errorHandleEvent)
     {
-        runningScene = _SceneLoad<int>(index);
-        StartCoroutine(runningScene);
+        runningScene = _SceneLoadOnce<int>(index);
         errorHandleEvent = _errorHandleEvent;
     }
     public void SceneLoad(string name, Action<string> _errorHandleEvent)
     {
-        runningScene = _SceneLoad<string>(name);
-        StartCoroutine(runningScene);
+        runningScene = _SceneLoadOnce<string>(name);
         errorHandleEvent = _errorHandleEvent;
     }
 
-    IEnumerator _SceneLoad<T>(T index)
+    // Fade in > Open loading ui > Fade out > Load > Fade in > Fade out
+
+    private IEnumerator _SceneLoadOnce<T>(T index)
     {
-        WaitForSeconds yieldTime = new WaitForSeconds(fadeTime);
-
-        // Fade in
-        Color fadeColor = imageBackground.color;
-        fadeColor.a = 0;
-        imageForeground.CrossFadeColor(fadeColor, fadeTime, false, true);
-        yield return yieldTime;
-
         // Load Scene
         AsyncOperation loadingScene = null;
 
-        if (typeof(T).Equals(typeof(Int32)))
+        string errors = "";
+        try
         {
-            SceneManager.LoadSceneAsync((int)(object)index.ToString());
+            if (typeof(T).Equals(typeof(Int32)))
+            {
+                SceneManager.LoadSceneAsync((int)(object)index.ToString());
+            }
+            else if (typeof(T).Equals(typeof(string)))
+            {
+                SceneManager.LoadSceneAsync(index.ToString());
+            }
+            else
+            {
+                throw new Exception("Can't find scene!");
+            }
         }
-        else if(typeof(T).Equals(typeof(string)))
+        catch(Exception e)
         {
-            SceneManager.LoadSceneAsync(index.ToString());
+            errors = e.Message;
         }
-        else
+
+        // Load fail
+        if(errors != "")
         {
-            // Load fail
-            Error("Can't find scene");
-            imageBackground.color = fadeColor;
+            Error(errors);
             yield return null;
         }
 
         loadingScene.allowSceneActivation = false;
 
-        yieldTime = new WaitForSeconds(sceneLoadCheckInterval);
         while (loadingScene.isDone)
         {
-            yield return yieldTime;
+            yield return sceneCheckTime;
         }
 
         // Loading complete
         loadingScene.allowSceneActivation = true;
+        
+    }
 
-        // Fade out
-        fadeColor = imageBackground.color;
-        fadeColor.a = 1;
-        imageForeground.CrossFadeColor(fadeColor, fadeTime, false, true);
-        yieldTime = new WaitForSeconds(fadeTime);
-        yield return yieldTime;
+    private void _SceneLoad()
+    {
+
     }
 
     public void Error(string err)
