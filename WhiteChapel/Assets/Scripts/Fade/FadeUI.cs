@@ -86,6 +86,15 @@ public class FadeUI : MonoBehaviour
         }
         StartCoroutine(fadeNow);
     }
+    public void FadeStart(Action action, FadeData data) 
+    {
+        if (fadeDatas.Find(x => x == data) != null)
+        {
+            fadeIndex = fadeDatas.IndexOf(data);
+        }
+        FadeStart(action);
+    }
+
     private IEnumerator FadeIn()
     {
         fadeWait = new WaitForSeconds(fadeDatas[fadeIndex].fadeIn.fadeTime);

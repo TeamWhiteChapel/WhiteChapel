@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Project
   m_RootView: {fileID: 10}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -95,8 +95,8 @@ MonoBehaviour:
     y: 439
     width: 954
     height: 508
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 18
+  controlID: 27
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -146,8 +146,8 @@ MonoBehaviour:
     y: 0
     width: 595
     height: 310
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 116
+  controlID: 117
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: PackageManagerWindow
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -320,16 +320,16 @@ MonoBehaviour:
     y: 0
     width: 954
     height: 439
-  m_MinSize: {x: 801, y: 271}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
   - {fileID: 17}
   - {fileID: 16}
   - {fileID: 14}
-  m_Selected: 2
-  m_LastSelected: 1
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -564,7 +564,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts/SceneMove
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -572,16 +572,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts/SceneMove
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\PC\Desktop\asdf\WhiteChapel
+  m_LastProjectPath: C:\Users\PC\Desktop\WhiteChapel\WhiteChapel
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 042c0000
-    m_LastClickedID: 11268
-    m_ExpandedIDs: 000000004069000000ca9a3b
+    m_SelectedIDs: 666a0000
+    m_LastClickedID: 27238
+    m_ExpandedIDs: 000000003a6a00004a6a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -609,7 +609,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000040690000
+    m_ExpandedIDs: 000000003a6a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -640,18 +640,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: FadeUI
+      m_OriginalName: FadeUI
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 10728
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
@@ -707,7 +707,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 32
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -753,7 +753,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: cef4ffff42f8ffff
+      m_ExpandedIDs: 5c97f8ff349bf8ff28fbffff2afbffff60680000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1132,7 +1132,7 @@ MonoBehaviour:
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: UnityEditor.SceneViewCameraOverlay
-      index: 8
+      index: 9
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
@@ -1147,9 +1147,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 22.834839, y: 10.699691, z: -34.799713}
+    m_Target: {x: 936.577, y: 494.04456, z: -1565.5392}
     speed: 2
-    m_Value: {x: 22.834839, y: 10.699691, z: -34.799713}
+    m_Value: {x: 936.577, y: 494.04456, z: -1565.5392}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1195,13 +1195,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.056307666, y: 0.11118708, z: 0.0063103647, w: -0.9921846}
+    m_Target: {x: 0.025187872, y: 0.0020968833, z: 0.00005422633, w: -0.9996856}
     speed: 2
-    m_Value: {x: 0.05630758, y: 0.11118691, z: 0.006310355, w: -0.992183}
+    m_Value: {x: 0.025187746, y: 0.0020968728, z: 0.000054226057, w: -0.9996806}
   m_Size:
-    m_Target: 4.7132645
+    m_Target: 11.065354
     speed: 2
-    m_Value: 4.7132645
+    m_Value: 11.065354
   m_Ortho:
     m_Target: 0
     speed: 2
