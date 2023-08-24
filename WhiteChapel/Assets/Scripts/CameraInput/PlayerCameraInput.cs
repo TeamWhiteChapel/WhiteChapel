@@ -5,5 +5,4 @@ using UnityEngine;
 public class PlayerCameraInput : MonoBehaviour
 {
     public static Quaternion rotation;
-
 }

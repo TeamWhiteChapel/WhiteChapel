@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraPC : MonoBehaviour
+public class CameraPC : PlayerCameraInput
 {
     [SerializeField, Range(0, 80)]
     protected float angleClamp = 10f;
@@ -28,5 +28,9 @@ public class CameraPC : MonoBehaviour
         mY = Mathf.Clamp(mY, -angleClamp, angleClamp);
 
         transform.rotation = Quaternion.Euler(-mY, mX, 0f);
+
+        rotation = transform.rotation;
     }
 }
+
+
