@@ -27,6 +27,6 @@ public class CameraPC : MonoBehaviour
 
         mY = Mathf.Clamp(mY, -angleClamp, angleClamp);
 
-        transform.rotation = Quaternion.Euler(mY, mX, 0f);
+        transform.rotation = Quaternion.Euler(-mY, mX, 0f);
     }
 }
