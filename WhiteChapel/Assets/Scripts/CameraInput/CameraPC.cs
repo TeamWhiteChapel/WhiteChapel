@@ -12,24 +12,19 @@ public class CameraPC : PlayerCameraInput
     float mX;
     float mY;
     
-    float mouseX;
-    float mouseY;
-
-    void Start(){}
-
+    float inputMouseX;
+    float inputMouseY;
     void Update()
     {
-        mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+        inputMouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        inputMouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
-        mX += mouseX;
-        mY += mouseY;
+        mX += inputMouseX;
+        mY += inputMouseY;
 
         mY = Mathf.Clamp(mY, -angleClamp, angleClamp);
 
-        transform.rotation = Quaternion.Euler(-mY, mX, 0f);
-
-        rotation = transform.rotation;
+        rotation = Quaternion.Euler(-mY, mX, 0f);
     }
 }
 

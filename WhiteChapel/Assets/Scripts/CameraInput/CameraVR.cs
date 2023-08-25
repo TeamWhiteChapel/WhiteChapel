@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraVR : MonoBehaviour
+public class CameraVR : PlayerCameraInput
 {
     // Start is called before the first frame update
     void Start()
