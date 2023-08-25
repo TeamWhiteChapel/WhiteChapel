@@ -5,9 +5,9 @@ using UnityEngine;
 public class CameraPC : PlayerCameraInput
 {
     [SerializeField, Range(0, 80)]
-    protected float angleClamp = 10f;
-    
-    public float sensitivity = 5.0f;
+    protected float angleClamp = 89f;
+
+    public float sensitivity = 200f;
 
     float mX;
     float mY;
