@@ -13,9 +13,12 @@ public class ItemSelectUI : MonoBehaviour
 
     private void Start()
     {
-        image = transform.Find("InterationCanvas").GetComponentInChildren<Image>();
-        idleSprite = Resources.Load<Sprite>("InterationUI/Eye_Closed");
-        selectedSprite = Resources.Load<Sprite>("InterationUI/Eye_Open");
+        if(image == null)
+            image = transform.Find("InterationCanvas").GetComponentInChildren<Image>();
+        if (idleSprite == null)
+            idleSprite = Resources.Load<Sprite>("InterationUI/Eye_Closed");
+        if (selectedSprite == null)
+            selectedSprite = Resources.Load<Sprite>("InterationUI/Eye_Open");
 
         InteractionObj = LayerMask.GetMask("Interaction");
     }
