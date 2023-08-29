@@ -56,7 +56,7 @@ public class TimeManager : MonoBehaviour
 
     void Start()
     {
-        Paused = false;        
+        Paused = false;
     }
 
     void Update()
@@ -79,10 +79,10 @@ public class TimeManager : MonoBehaviour
     private IEnumerator gameTime;
 
     IEnumerator GameTime()
-    {       
+    {
         while (true)
         {
-           
+
             if (!_paused)
             {
                 yield return new WaitForSeconds(timeTick);
