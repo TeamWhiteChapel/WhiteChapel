@@ -25,11 +25,8 @@ public class TimeManager : MonoBehaviour
     private static float _rawTime;
 
     private static bool _paused;
-    private static float pausedTime;
-    private static float pauseDuration;
 
     public TMP_Text text1;
-    public TMP_Text text2;
 
     [SerializeField]
     private float scaleTime;
@@ -70,9 +67,8 @@ public class TimeManager : MonoBehaviour
 
     }
     void Update()
-    {
-       
-        test = _gameDate;
+    {       
+        test = _gameDate;        
 
         text1.text = test.ToString("yyyy-MM-dd HH:mm:ss");
     }
@@ -96,11 +92,13 @@ public class TimeManager : MonoBehaviour
         {
             yield return new WaitForSeconds(timeTick);
             if (!_paused)
-            {      
-                _gameDate = startDate.AddSeconds(( + _rawTime) * scaleTime);
-            }
+            {   
+                _gameDate = startDate.AddSeconds(_rawTime * scaleTime);
+                
+            } 
             else
             {
+                
                 yield return null;
             }
         }
@@ -112,11 +110,13 @@ public class TimeManager : MonoBehaviour
         if (_paused)
         {
             _paused = false;
+            Time.timeScale = 0;
             Instance.StartCoroutine(gameTime);
         }
         else
         {            
-            _paused = false;
+            _paused = true;
+            Time.timeScale = 1;
             Instance.StopCoroutine(gameTime);
             
         }
