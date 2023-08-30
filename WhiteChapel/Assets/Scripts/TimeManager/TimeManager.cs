@@ -25,6 +25,16 @@ public class TimeManager : MonoBehaviour
     private static float _rawTime;
 
     private static bool _paused;
+    private static float pausedTime;
+    private static float pauseDuration;
+
+    public TMP_Text text1;
+    public TMP_Text text2;
+
+    [SerializeField]
+    private float scaleTime;
+    public DateTime test;
+
 
     public static DateTime GameDate
     {
@@ -57,11 +67,14 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         Paused = false;
-    }
 
+    }
     void Update()
     {
+       
+        test = _gameDate;
 
+        text1.text = test.ToString("yyyy-MM-dd HH:mm:ss");
     }
     public static void ResetTime(float savedTime)
     {
@@ -72,7 +85,6 @@ public class TimeManager : MonoBehaviour
         _rawTime = (float)pointTime.TotalSeconds;
 
         Instance.gameTime = Instance.GameTime();
-
         Instance.StartCoroutine(Instance.gameTime);
     }
 
@@ -82,12 +94,10 @@ public class TimeManager : MonoBehaviour
     {
         while (true)
         {
-
+            yield return new WaitForSeconds(timeTick);
             if (!_paused)
-            {
-                yield return new WaitForSeconds(timeTick);
-
-                _gameDate = startDate.AddSeconds((Time.time + _rawTime) * 24.0f);
+            {      
+                _gameDate = startDate.AddSeconds(( + _rawTime) * scaleTime);
             }
             else
             {
@@ -95,6 +105,7 @@ public class TimeManager : MonoBehaviour
             }
         }
     }
+
 
     public void Pause()
     {
@@ -104,9 +115,10 @@ public class TimeManager : MonoBehaviour
             Instance.StartCoroutine(gameTime);
         }
         else
-        {
-            _paused = true;
+        {            
+            _paused = false;
             Instance.StopCoroutine(gameTime);
+            
         }
     }
 }
