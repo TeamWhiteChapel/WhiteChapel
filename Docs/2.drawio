@@ -1,0 +1,22 @@
+<mxfile host="Electron" modified="2023-08-24T02:13:07.168Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="sVyxLpf67p2td2Y4rI36" version="21.6.5" type="device">
+  <diagram name="페이지-1" id="EXoF-xyNsVU1TsGXg5mc">
+    <mxGraphModel dx="1416" dy="828" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e1Alzavp0AhbJEwglkXP-5" value="Class TimeManager : MonoBehaviour" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="20" y="20" width="280" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="e1Alzavp0AhbJEwglkXP-6" value="private static TimeManager instance&lt;br&gt;public static DateTime gameDate { get; }&lt;br&gt;public static float rawTime { get; }&lt;br&gt;public static bool paused { get; set; }&lt;br&gt;&lt;br&gt;private readonly DateTime startDate&lt;br&gt;private readonly float timeTick&lt;br&gt;&lt;br&gt;public static void ResetTime(float savedTime)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="e1Alzavp0AhbJEwglkXP-5" vertex="1">
+          <mxGeometry y="50" width="280" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="G0t9ObmdEfd2VUtQQIqn-1" value="사용자 요구사항&lt;br&gt;&lt;br&gt;싱글턴 패턴으로 작성 &amp;gt; 시간관리 매니저는 하나만 존재&lt;br&gt;중복관리 실행, 오류 처리&lt;br&gt;&lt;br&gt;rawTime을 통해 게임 실제 경과시간 반환&lt;br&gt;gameDate를 통해 게임 표기 경과시간 반환&lt;br&gt;&lt;br&gt;gameDate 계산을 위해 rawTime과&amp;nbsp;startDate사용&lt;br&gt;startDate는 하드코딩 가능, 게임 시작시 표기시간 지정&lt;br&gt;&lt;br&gt;timeTick 시간마다 코루틴으로 게임 시간 계산&lt;br&gt;모든 게임 오브젝트가 해당 시간 사용 염두&lt;br&gt;한틱당 10초 정도면 모든 게임 오브젝트가 1초단위 제어 불가&lt;br&gt;&lt;br&gt;게임의 일시정지 관리를&amp;nbsp;paused로&amp;nbsp;진행&lt;br&gt;&lt;br&gt;기한 5일" style="shape=note;size=20;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="320" y="20" width="360" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="w3T9CODHqYNMyXveAvNT-1" value="Time.time과&amp;nbsp;ResetTime에 주어진&amp;nbsp;savedTime 사용하여 실제 게임 진행시간을 계산하고, &lt;br&gt;이걸 gameDate로 바꿔줄 수 있는 로직 필요" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="75" y="300" width="490" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

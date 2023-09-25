@@ -1,0 +1,57 @@
+<mxfile host="Electron" modified="2023-08-22T08:12:19.308Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="K8YJ_d0l_7Ak9IyXyZxc" version="21.6.5" type="device">
+  <diagram name="페이지-1" id="s0twMI4u88vdT_DfBx0G">
+    <mxGraphModel dx="1418" dy="828" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-1" value="Class PlayerCameraInput" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="130" y="100" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-2" value="public static Quaternion rotation" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="6dcfwE6oZflSlnwtjJZ8-1" vertex="1">
+          <mxGeometry y="50" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="6dcfwE6oZflSlnwtjJZ8-2" target="6dcfwE6oZflSlnwtjJZ8-19" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="239.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-9" value="Class CameraVR" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+          <mxGeometry x="330" y="240" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="6dcfwE6oZflSlnwtjJZ8-2" target="6dcfwE6oZflSlnwtjJZ8-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="230" as="targetPoint" />
+            <mxPoint x="270" y="160" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-18" value="다른 카메라에서 사용시&lt;br&gt;&lt;br&gt;public Foo()&lt;br&gt;{&lt;br&gt;&amp;nbsp; &amp;nbsp; transform.rotate = PlayerCameraInput.rotation;&lt;br&gt;}&lt;br&gt;&lt;br&gt;사용 가능하여야 함" style="shape=note;size=20;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="410" y="50" width="270" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-19" value="Class CameraPC" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="30" y="240" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-20" value="&lt;span style=&quot;background-color: initial;&quot;&gt;[SerializeField, Range(0, 80)]&lt;/span&gt;&lt;br&gt;&lt;div&gt;protected float angleClamp = 10f;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" parent="6dcfwE6oZflSlnwtjJZ8-19" vertex="1">
+          <mxGeometry y="50" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-21" value="화면 제한 각도는 0 ~ (90도 아래의 임의 각도)까지 사용 가능해야 한다.&lt;br&gt;화면 제한 각도 0에서 카메라가 거꾸로 보이는 현상이 발생하지 않아야 한다.&lt;br&gt;&lt;br&gt;&lt;div&gt;화면이 거꾸로 보이는 지점이 없게 하려면 transform.rotation과 quaternion을 사용해야 함(&lt;span style=&quot;background-color: initial;&quot;&gt;뭔가 안맞다 싶으면 Debug를 애용하자)&lt;/span&gt;&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="30" y="350" width="430" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-22" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&amp;nbsp;&amp;lt; 빈공간으로 보류&lt;/span&gt;&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="450" y="220" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-23" value="부모 클래스 구현&lt;br&gt;&lt;br&gt;자식 클래스 pc 구현&lt;br&gt;&lt;br&gt;자식 클래스 vr 선언만(껍데기)&lt;br&gt;&lt;br&gt;&lt;br&gt;목표기한 5일" style="shape=note;size=20;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="510" y="290" width="170" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-24" value="상속" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="260" y="180" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-25" value="부모 클래스" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="210" y="60" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="6dcfwE6oZflSlnwtjJZ8-26" value="자식 클래스" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="250" y="270" width="90" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,22 @@
+<mxfile host="Electron" modified="2023-08-25T02:01:37.858Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="9M9Bf0QqJxe8gaDwLVfU" version="21.6.5" type="device">
+  <diagram name="페이지-1" id="x8nyTxyPWPSIiyDdi-oV">
+    <mxGraphModel dx="1434" dy="844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="x6B_y80FcXrsbrY5H4j9-1" value="Class ItemSelectUI" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="190" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="x6B_y80FcXrsbrY5H4j9-2" value="[SerializeField]&lt;br&gt;private Image image;&lt;br&gt;[SerializeField]&lt;br&gt;private Sprite idleSprite;&lt;br&gt;[SerializeField]&lt;br&gt;private Sprite selectedSprite;&lt;br&gt;&lt;br&gt;Public void MouseOver()&lt;br&gt;Public void MouseExit()" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="x6B_y80FcXrsbrY5H4j9-1">
+          <mxGeometry y="50" width="190" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="x6B_y80FcXrsbrY5H4j9-4" value="매번 업데이트마다 ui가 화면을 보게 각도를 맞춘다.&lt;br&gt;&amp;nbsp;- fps 프로젝트의 hp바 참고, Vector3.forward 참고&lt;br&gt;&lt;br&gt;카메라 컬링 마스크를 이용하고, 샘플과 독스에 포함시킨다.&lt;br&gt;오버레이 카메라를 이용하고, 샘플과 독스에 포함시킨다.&lt;br&gt;이때, 오버레이 카메라의 Clipping planes의 거리를 알맞게 조절하는 내용을 포함한다.&lt;br&gt;&lt;br&gt;이미지 UI의 레이캐스팅을 비활성화하고, 이를 샘플과 독스에 포함시킨다.&lt;br&gt;&lt;br&gt;MouseOver(), MouseExit() 따라 아이콘 표시가 달라진다." style="shape=note;size=20;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+          <mxGeometry x="40" y="260" width="460" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="x6B_y80FcXrsbrY5H4j9-5" value="오브젝트 상호작용을 위한 UI이고,&lt;br&gt;현재는 아이콘 부분만 구현합니다.&lt;br&gt;구현 목표기간 5일" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="250" y="40" width="200" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
