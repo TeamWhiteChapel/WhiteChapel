@@ -17,12 +17,12 @@ public class CameraMovement : MonoBehaviour
 
         transform.position += new Vector3(h, 0, v) * moveSpeed * Time.deltaTime;
 
-        xRotateMove = -Input.GetAxis("Mouse Y") * Time.deltaTime * rotateSpeed;
-        yRotateMove = Input.GetAxis("Mouse X") * Time.deltaTime * rotateSpeed;
+        //xRotateMove = -Input.GetAxis("Mouse Y") * Time.deltaTime * rotateSpeed;
+        //yRotateMove = Input.GetAxis("Mouse X") * Time.deltaTime * rotateSpeed;
 
-        yRotate = transform.eulerAngles.y + yRotateMove;
-        xRotate += xRotateMove;
-        xRotate = Mathf.Clamp(xRotate, -90, 90);
-        transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
+        //yRotate = transform.eulerAngles.y + yRotateMove;
+        //xRotate += xRotateMove;
+        //xRotate = Mathf.Clamp(xRotate, -90, 90);
+        //transform.eulerAngles = new Vector3(xRotate, yRotate, 0);
     }
 }
