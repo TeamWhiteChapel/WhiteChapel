@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 379545401326721562}
   - component: {fileID: 1167811903360662221}
   m_Layer: 6
-  m_Name: InterationUI
+  m_Name: InterationCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1167811903360662221
 MonoBehaviour:
   m_ObjectHideFlags: 0
