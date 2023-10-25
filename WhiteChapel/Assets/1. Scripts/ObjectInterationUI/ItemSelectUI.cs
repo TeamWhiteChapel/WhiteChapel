@@ -24,7 +24,7 @@ public class ItemSelectUI : MonoBehaviour
     [Tooltip("player(GetPositionValue 스크립트를 가지는 오브젝트)")]
     [SerializeField] GameObject player;
     // 상호작용 중인 지(정보창 확인 중인지) 여부
-    bool isSelectedUIActive;
+    bool isSelectedUIActive = false;
     [Tooltip("오브젝트와 카메라의 거리")]
     [SerializeField] float distance = 0.4f;
     [Tooltip("오브젝트가 왼쪽으로 xdistance만큼 이동")]

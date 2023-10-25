@@ -16,7 +16,6 @@ public class ObjectDragRotation : MonoBehaviour
         // 드래그 상태일 때, 오브젝트가 회전하게 한다.
         if (isDrag)
         {
-            Debug.Log("Update");
             mX += inputMouseX * Time.deltaTime;
             mY += inputMouseY * Time.deltaTime;
 
@@ -37,7 +36,6 @@ public class ObjectDragRotation : MonoBehaviour
     // 마우스 드래그 시 마우스 이동값을 저장.
     private void OnMouseDrag()
     {
-        Debug.Log("OnMouseDrag");
         inputMouseX = Input.GetAxis("Mouse X") * rotationSpeed;
         inputMouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
