@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObjectDragRotation : MonoBehaviour
 {
     [Tooltip("마우스 이동에 따른 오브젝트 회전 속도")]
-    [SerializeField] float rotationSpeed = 300f;
+    [SerializeField] float rotationSpeed = 1000f;
 
     bool isDrag = false;
     float mX = 0, mY = 0;
