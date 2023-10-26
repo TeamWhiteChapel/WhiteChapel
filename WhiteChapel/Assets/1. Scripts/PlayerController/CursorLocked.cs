@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class CursorLocked : MonoBehaviour
 {
-    // Update is called once per frame
+    public bool isLocked = true;
+
     void Update()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (isLocked)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }

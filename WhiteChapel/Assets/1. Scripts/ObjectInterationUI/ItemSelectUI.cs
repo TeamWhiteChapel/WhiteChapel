@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.UI;
 
 public class ItemSelectUI : MonoBehaviour
@@ -32,8 +33,8 @@ public class ItemSelectUI : MonoBehaviour
 
     private void Start()
     {
-        if(image == null)
-            image = transform.Find("InterationCanvas").GetComponentInChildren<Image>();
+        //if(image == null)
+        //    image = transform.Find("InterationCanvas").GetComponentInChildren<Image>();
         if (idleSprite == null)
             idleSprite = Resources.Load<Sprite>("InterationUI/Eye_Closed");
         if (selectedSprite == null)
@@ -52,8 +53,9 @@ public class ItemSelectUI : MonoBehaviour
         if (Physics.Raycast(inGameRay, out inGameHit, rayMaxDistance, InteractionObj))
         {
             // 원본 오브젝트를 보고 있는 경우
-            if(inGameHit.collider.gameObject == gameObject)
+            if (inGameHit.collider.gameObject == gameObject)
             {
+                Debug.Log(gameObject.name + "는 닿음!!!!!!");
                 OnMouseOver();
 
                 // 상호작용이 가능한 오브젝트를 클릭/e키 하면 오브젝트 회전기능과 정보창이 보인다.
@@ -64,11 +66,13 @@ public class ItemSelectUI : MonoBehaviour
             }
             else
             {
+                Debug.Log(inGameHit.collider.gameObject.name + " != " + gameObject);
                 OnMouseExit();
             }
         }
         else
         {
+            Debug.Log(gameObject.name + "는 안닿음!!!!!!");
             OnMouseExit();
         }
 
@@ -85,6 +89,8 @@ public class ItemSelectUI : MonoBehaviour
 
     private void OnObjectDetailedMode()
     {
+        Camera.main.GetComponent<CursorLocked>().isLocked = false;
+
         // ESC 키를 눌러 UI창 끄게하기 위한 용도.
         isSelectedUIActive = true;
 
@@ -109,6 +115,8 @@ public class ItemSelectUI : MonoBehaviour
 
     private void OffObjectDetailedMode()
     {
+        Camera.main.GetComponent<CursorLocked>().isLocked = true;
+
         // 오브젝트 복제본 비활성화
         copyObj.SetActive(false);
 

@@ -36,6 +36,7 @@ public class ObjectDragRotation : MonoBehaviour
     // 마우스 드래그 시 마우스 이동값을 저장.
     private void OnMouseDrag()
     {
+        Debug.Log("닿긴닿았네...");
         inputMouseX = Input.GetAxis("Mouse X") * rotationSpeed;
         inputMouseY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
