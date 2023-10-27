@@ -3285,7 +3285,7 @@ GameObject:
   - component: {fileID: 3967368288212831396}
   - component: {fileID: 333418683533042672}
   - component: {fileID: 3929707158442702524}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NPC_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3804,7 +3804,7 @@ GameObject:
   - component: {fileID: 3563040143257775713}
   - component: {fileID: 1856305881444420834}
   - component: {fileID: 8402480055942385535}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NPC_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6028,7 +6028,7 @@ GameObject:
   - component: {fileID: 6734211397738325326}
   - component: {fileID: 7773916753851399020}
   - component: {fileID: 7076446361800010078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NPC_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
