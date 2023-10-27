@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.UI;
 
-public class ItemSelectUI : MonoBehaviour
+public class InterationManager : MonoBehaviour
 {
     [Tooltip("이미지를 띄울 UI Image")]
     [SerializeField] Image image;
@@ -12,10 +12,10 @@ public class ItemSelectUI : MonoBehaviour
     [Tooltip("눈 뜬 이미지")]
     [SerializeField] Sprite selectedSprite;
 
-    LayerMask InteractionObj;
-    [Tooltip("상호작용이 가능한 최대 거리")]
-    [SerializeField] float rayMaxDistance = 0.5f;
-
+    // 해당 오브젝트를 쳐다보고 있는 중인 지 여부
+    public bool isRaycast = false;
+    // 상호작용 중인 지(정보창 확인 중인지) 여부
+    bool isSelectedUIActive = false;
     [Tooltip("눈 이미지 UI")]
     [SerializeField] GameObject InterationUI;
     [Tooltip("오브젝트 상세 정보 UI")]
@@ -24,8 +24,6 @@ public class ItemSelectUI : MonoBehaviour
     [SerializeField] GameObject copyObj;
     [Tooltip("player(GetPositionValue 스크립트를 가지는 오브젝트)")]
     [SerializeField] GameObject player;
-    // 상호작용 중인 지(정보창 확인 중인지) 여부
-    bool isSelectedUIActive = false;
     [Tooltip("오브젝트와 카메라의 거리")]
     [SerializeField] float distance = 0.4f;
     [Tooltip("오브젝트가 왼쪽으로 xdistance만큼 이동")]
@@ -36,43 +34,27 @@ public class ItemSelectUI : MonoBehaviour
         //if(image == null)
         //    image = transform.Find("InterationCanvas").GetComponentInChildren<Image>();
         if (idleSprite == null)
-            idleSprite = Resources.Load<Sprite>("InterationUI/Eye_Closed");
+            idleSprite = Resources.Load<Sprite>("Image/InterationUI/Eye_Closed");
         if (selectedSprite == null)
-            selectedSprite = Resources.Load<Sprite>("InterationUI/Eye_Open");
-
-        InteractionObj = LayerMask.GetMask("Interaction");
+            selectedSprite = Resources.Load<Sprite>("Image/InterationUI/Eye_Open");
 
         isSelectedUIActive = false;
     }
 
     void Update()
     {
-        Ray inGameRay = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-        RaycastHit inGameHit;
-
-        if (Physics.Raycast(inGameRay, out inGameHit, rayMaxDistance, InteractionObj))
+        if (isRaycast)
         {
-            // 원본 오브젝트를 보고 있는 경우
-            if (inGameHit.collider.gameObject == gameObject)
-            {
-                Debug.Log(gameObject.name + "는 닿음!!!!!!");
-                OnMouseOver();
+            OnMouseOver();
 
-                // 상호작용이 가능한 오브젝트를 클릭/e키 하면 오브젝트 회전기능과 정보창이 보인다.
-                if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
-                {
-                    OnObjectDetailedMode();
-                }
-            }
-            else
+            // 상호작용이 가능한 오브젝트를 클릭/e키 하면 오브젝트 회전기능과 정보창이 보인다.
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log(inGameHit.collider.gameObject.name + " != " + gameObject);
-                OnMouseExit();
+                OnObjectDetailedMode();
             }
         }
         else
         {
-            Debug.Log(gameObject.name + "는 안닿음!!!!!!");
             OnMouseExit();
         }
 
@@ -134,13 +116,14 @@ public class ItemSelectUI : MonoBehaviour
         isSelectedUIActive = false;
     }
 
-    public void OnMouseOver()
+    private void OnMouseOver()
     {
         image.sprite = selectedSprite;
     }
 
-    public void OnMouseExit()
+    private void OnMouseExit()
     {
-        image.sprite = idleSprite;
+        if(image.sprite == selectedSprite)
+            image.sprite = idleSprite;
     }
 }
