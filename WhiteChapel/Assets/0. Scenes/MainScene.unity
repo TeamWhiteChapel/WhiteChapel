@@ -4064,11 +4064,8 @@ GameObject:
   - component: {fileID: 3563040143257775713}
   - component: {fileID: 1856305881444420834}
   - component: {fileID: 8402480055942385535}
-<<<<<<< HEAD
-=======
   - component: {fileID: 8402480055942385537}
   - component: {fileID: 8402480055942385538}
->>>>>>> c2007002b11313ffa98112f194c7221f91ceebf3
   m_Layer: 8
   m_Name: NPC_1
   m_TagString: Untagged
