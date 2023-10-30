@@ -7,15 +7,13 @@ public class RaycastManager : MonoBehaviour
 {
     LayerMask InteractionObj;
     LayerMask TalkNPC;
-    [Tooltip("»óÈ£ÀÛ¿ëÀÌ °¡´ÉÇÑ ÃÖ´ë °Å¸®")]
+    [Tooltip("ìƒí˜¸ì‘ìš©ì´ ê°€ëŠ¥í•œ ìµœëŒ€ ê±°ë¦¬")]
     [SerializeField] float rayMaxDistance = 0.5f;
 
     Ray inGameRay;
     RaycastHit inGameHit;
     InterationManager target;
     TalkSystemManager talkTarget;
-
-
 
     void Start()
     {
@@ -41,6 +39,8 @@ public class RaycastManager : MonoBehaviour
             if (target != null && target.isRaycast == true)
                 target.isRaycast = false;
         }
+        
+        
         if (Physics.Raycast(inGameRay, out inGameHit, rayMaxDistance, TalkNPC))
         {
             if (talkTarget != null && talkTarget.isTalk == true &&
@@ -59,7 +59,5 @@ public class RaycastManager : MonoBehaviour
 
             }
         }
-       
-
     }
 }
