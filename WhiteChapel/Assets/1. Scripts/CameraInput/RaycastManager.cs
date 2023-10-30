@@ -6,16 +6,19 @@ using UnityEngine.UIElements;
 public class RaycastManager : MonoBehaviour
 {
     LayerMask InteractionObj;
-    [Tooltip("»óÈ£ÀÛ¿ëÀÌ °¡´ÉÇÑ ÃÖ´ë °Å¸®")]
+    LayerMask TalkNPC;
+    [Tooltip("ìƒí˜¸ì‘ìš©ì´ ê°€ëŠ¥í•œ ìµœëŒ€ ê±°ë¦¬")]
     [SerializeField] float rayMaxDistance = 0.5f;
 
     Ray inGameRay;
     RaycastHit inGameHit;
     InterationManager target;
+    TalkSystemManager talkTarget;
 
     void Start()
     {
         InteractionObj = LayerMask.GetMask("Interaction");
+        TalkNPC = LayerMask.GetMask("NPC");
     }
 
     void FixedUpdate()
@@ -35,6 +38,26 @@ public class RaycastManager : MonoBehaviour
         {
             if (target != null && target.isRaycast == true)
                 target.isRaycast = false;
+        }
+        
+        
+        if (Physics.Raycast(inGameRay, out inGameHit, rayMaxDistance, TalkNPC))
+        {
+            if (talkTarget != null && talkTarget.isTalk == true &&
+                talkTarget.gameObject != inGameHit.collider.gameObject)
+                talkTarget.isTalk = false;
+            talkTarget = inGameHit.collider.GetComponent<TalkSystemManager>();
+            talkTarget.isTalk = true;
+            Debug.Log("true");
+        }
+        else
+        {
+            if (talkTarget != null && talkTarget.isTalk == true)
+            {
+                talkTarget.isTalk = false;
+                Debug.Log("false");
+
+            }
         }
     }
 }
