@@ -12,24 +12,40 @@ public class TalkSystemManager : MonoBehaviour
     public int count = 2; //대화의 총 개수
     public int check_count = 0; //이 변수의 수치 조절 = 대화 진행
     string[] sentences; //대화 문장
+    string NPCName;
+
 
     public Text sentence_text; //텍스트 UI연결
-    //public Image[] character_icons;
+    public Text npc_name;
     public Image textIcon;
     public GameObject TalkCanvas;
+    PlayerController PlayerControllerComponent;
+    CameraPC CameraPCComponent;
+    public GameObject targetImage;
+
 
     private void Start()
     {
         //대화 저장 공간에 대한 초기화를 진행
         sentences = new string[count];
         //다이얼로그 내용 초기화
-        DialogInitialize();
+        DialogInitialize(gameObject.name);
     }
 
-    private void DialogInitialize()
+    private void DialogInitialize(string NPCName)
     {
-        sentences[0] = "즐겁다!(진심)";
-        sentences[1] = "성공";
+        if (NPCName.Equals("NPC_1"))
+        {
+            sentences[0] = "냥냥";
+            sentences[1] = "먕먕";
+        }
+        else if (NPCName.Equals("NPC_2"))
+        {
+            sentences[0] = "냥냥";
+            sentences[1] = "먕먕";
+        }
+
+
     }
 
     void Update()
@@ -40,6 +56,16 @@ public class TalkSystemManager : MonoBehaviour
 
             if (isShowDialog == true)   // TalkCanvas가 켜지면 아래 이프문실행
             {
+                PlayerControllerComponent = Camera.main.GetComponentInParent<PlayerController>();
+                PlayerControllerComponent.enabled = false;  //대화 시 플레이어 이동 못하게
+                //대화 시 화면전환 안되게
+                CameraPCComponent = Camera.main.GetComponentInParent<CameraPC>();
+                CameraPCComponent.enabled = false;
+                //대화 시 조준점 없애기
+                targetImage.gameObject.SetActive(false);
+                NPCName = gameObject.name;
+                npc_name.text = NPCName;
+
                 if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
                 {
                     if (check_count + 1 < count)
@@ -52,7 +78,9 @@ public class TalkSystemManager : MonoBehaviour
                         TalkCanvas.SetActive(false);
                         isShowDialog = false;
                         check_count = 0;
-
+                        PlayerControllerComponent.enabled = true;
+                        CameraPCComponent.enabled = true;
+                        targetImage.gameObject.SetActive(true);
                     }
                 }
             }
@@ -72,8 +100,7 @@ public class TalkSystemManager : MonoBehaviour
 
     private void ShowDialog()
     {
-        //textIcon.gameObject.SetActive(true); //텍스트 활성화
         sentence_text.text = sentences[check_count];
-
     }
+
 }

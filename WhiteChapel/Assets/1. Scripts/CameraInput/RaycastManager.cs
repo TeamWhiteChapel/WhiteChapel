@@ -15,6 +15,8 @@ public class RaycastManager : MonoBehaviour
     InterationManager target;
     TalkSystemManager talkTarget;
 
+
+
     void Start()
     {
         InteractionObj = LayerMask.GetMask("Interaction");
@@ -57,5 +59,7 @@ public class RaycastManager : MonoBehaviour
 
             }
         }
+       
+
     }
 }
